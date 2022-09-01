@@ -14,7 +14,7 @@ This fork is also available as a Docker image as `mkody/birdsitelive`.
 
 The project's original README is as follows:
 
-![Test](https://github.com/MKody/BirdsiteLive/workflows/.NET%20Core/badge.svg?branch=im-in-space&event=push)
+[![ASP.NET Core Build & Tests](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml/badge.svg?branch=im-in-space&event=push)](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml)
 
 # BirdsiteLIVE
 
