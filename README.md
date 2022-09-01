@@ -1,4 +1,4 @@
-This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](https://github.com/NicolasConstant/BirdsiteLive). This fork runs in production on [a large BirdsiteLIVE instance](https://twtr.plus). Changes made in this fork include:
+This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](https://github.com/NicolasConstant/BirdsiteLive) and [this fork from Pasture](https://git.gamers.exposed/pasture/BirdsiteLIVE). It runs in production at [im-in.space](https://bird.im-in.space). Changes made from the original include:
 
 * Rework About page entirely - also disclose unlisted accounts and federation restrictions
 * Cache Tweets so that, for example, Announces do not hit rate limits
@@ -10,11 +10,11 @@ This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](htt
 * Define and enforce a maximum Tweet fetch age using snowflakes
 * (Optional) send quote-RTs as Soapbox-style quote posts
 
-This fork is also available as a Docker image as `pasture/birdsitelive`.
+This fork is also available as a Docker image as `mkody/birdsitelive`.
 
 The project's original README is as follows:
 
-![Test](https://github.com/NicolasConstant/BirdsiteLive/workflows/.NET%20Core/badge.svg?branch=master&event=push)
+![Test](https://github.com/MKody/BirdsiteLive/workflows/.NET%20Core/badge.svg?branch=im-in-space&event=push)
 
 # BirdsiteLIVE
 
