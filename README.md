@@ -12,9 +12,9 @@ This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](htt
 
 This fork is also available as a Docker image as `mkody/birdsitelive`.
 
-The project's original README is as follows:
-
 [![ASP.NET Core Build & Tests](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml/badge.svg?branch=im-in-space&event=push)](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml)
+
+The project's original README is as follows:
 
 # BirdsiteLIVE
 
@@ -24,15 +24,15 @@ BirdsiteLIVE is an ActivityPub bridge from Twitter, it's mostly a pet project/pl
 
 ## State of development
 
-The code is pretty messy and far from a good state, since it's a playground for me the aim was to understand some AP concepts, not provide a good state-of-the-art codebase. But I might refactor it to make it cleaner. 
+The code is pretty messy and far from a good state, since it's a playground for me the aim was to understand some AP concepts, not to provide a good state-of-the-art codebase. But I might refactor it to make it cleaner. 
 
 ## Official instance 
 
-You can find an official (and temporary) instance here: [beta.birdsite.live](https://beta.birdsite.live). This instance can disappear at any time, if you want a long term instance you should install your own or use another one. 
+There's none! Please read [here why I've stopped it](https://write.as/nicolas-constant/closing-the-official-bsl-instance).
 
 ## Installation
 
-I'm providing a [docker build](https://hub.docker.com/r/nicolasconstant/birdsitelive). To install it on your own server, please follow [those instructions](https://github.com/NicolasConstant/BirdsiteLive/blob/master/INSTALLATION.md). More [options](https://github.com/NicolasConstant/BirdsiteLive/blob/master/VARIABLES.md) are also available.
+I'm providing a [docker build](https://hub.docker.com/r/nicolasconstant/birdsitelive) (linux/amd64 only). To install it on your own server, please follow [those instructions](https://github.com/NicolasConstant/BirdsiteLive/blob/master/INSTALLATION.md). More [options](https://github.com/NicolasConstant/BirdsiteLive/blob/master/VARIABLES.md) are also available.
 
 Also a [CLI](https://github.com/NicolasConstant/BirdsiteLive/blob/master/BSLManager.md) is available for adminitrative tasks.
 
