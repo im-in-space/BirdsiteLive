@@ -97,7 +97,7 @@ namespace BirdsiteLive.Domain
                 {
                     type = "PropertyValue",
                     name = "Twitter",
-                    value = $"twitter.com/{acct}"
+                    value = $"<a href=\"https://twitter.com/{acct}\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"ellipsis\">twitter.com/{acct}</span></a>"
                 });
             }
 
