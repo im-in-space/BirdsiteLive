@@ -39,8 +39,7 @@ namespace BirdsiteLive.Twitter.Extractors
                 IsThread = tweet.InReplyToUserId != null && tweet.InReplyToUserId == tweet.CreatedBy.Id,
                 IsRetweet = tweet.IsRetweet || tweet.QuotedStatusId != null,
                 RetweetUrl = ExtractRetweetUrl(tweet),
-                IsSensitive = tweet.PossiblySensitive,
-                QuoteTweetUrl = tweet.QuotedStatusId != null ? "https://" + _instanceSettings.Domain + "/users/" + tweet.QuotedTweet.CreatedBy.ScreenName + "/statuses/" + tweet.QuotedStatusId : null
+                QuoteTweetUrl = tweet.QuotedStatusId != null && tweet.QuotedTweet != null ? "https://" + _instanceSettings.Domain + "/users/" + tweet.QuotedTweet.CreatedBy.ScreenName + "/statuses/" + tweet.QuotedStatusId : null
             };
 
             return extractedTweet;
@@ -105,18 +104,25 @@ namespace BirdsiteLive.Twitter.Extractors
             foreach (var url in tweet.Urls.OrderByDescending(x => x.URL.Length))
             {
                 // A bit of a hack
-                if (url.ExpandedURL == tweet.QuotedTweet?.Url && _instanceSettings.EnableQuoteRT)
+                try
                 {
-                    url.ExpandedURL = "";
-                } else
-                {
-                    var linkUri = new UriBuilder(url.ExpandedURL);
-
-                    if (linkUri.Host == "twitter.com")
+                    if (url.ExpandedURL == tweet.QuotedTweet?.Url && _instanceSettings.EnableQuoteRT)
                     {
-                        linkUri.Host = _instanceSettings.TwitterDomain;
-                        url.ExpandedURL = linkUri.Uri.ToString();
+                        url.ExpandedURL = "";
+                    } else
+                    {
+                        var linkUri = new UriBuilder(url.ExpandedURL);
+
+                        if (linkUri.Host == "twitter.com")
+                        {
+                            linkUri.Host = _instanceSettings.TwitterDomain;
+                            url.ExpandedURL = linkUri.Uri.ToString();
+                        }
                     }
+                }
+                catch (Exception)
+                {
+                    // ignored
                 }
 
                 message = message.Replace(url.URL, url.ExpandedURL);
@@ -139,7 +145,6 @@ namespace BirdsiteLive.Twitter.Extractors
                 var mediaUrl = GetMediaUrl(m);
                 var mediaType = GetMediaType(m.MediaType, mediaUrl);
                 if (mediaType == null) continue;
-
 
                 var att = new ExtractedMedia
                 {

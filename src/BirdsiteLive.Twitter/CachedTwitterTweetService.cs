@@ -47,7 +47,7 @@ namespace BirdsiteLive.Twitter
                 tweet = _twitterService.GetTweet(statusId);
 
                 // Unlike with the user cache, save the null value anyway to prevent (quicker) API exhaustion.
-                // It's incredibly unlikely that a tweet with this ID is going to magickally appear within 2 hours.
+                // It's incredibly unlikely that a tweet with this ID is going to magically appear within 2 hours.
                 _tweetCache.Set(statusId, tweet, _cacheEntryOptions); 
             }
 

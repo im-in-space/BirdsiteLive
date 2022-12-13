@@ -52,7 +52,7 @@ namespace BirdsiteLive.Domain
             
             string summary = null;
             var sensitive = _publicationRepository.IsSensitive(username);
-            if (sensitive || tweet.IsSensitive)
+            if (sensitive)
                 summary = "Sensitive Content";
 
             var extractedTags = _statusExtractor.Extract(tweet.MessageContent);
@@ -89,7 +89,7 @@ namespace BirdsiteLive.Domain
                 to = new[] { to },
                 cc = cc,
 
-                sensitive = tweet.IsSensitive || sensitive,
+                sensitive = sensitive,
                 summary = summary,
                 content = $"<p>{content}</p>",
                 attachment = Convert(tweet.Media),

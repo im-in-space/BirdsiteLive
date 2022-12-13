@@ -28,6 +28,5 @@ namespace BirdsiteLive.ActivityPub
         public Image image { get; set; }
         public EndPoints endpoints { get; set; }
         public UserAttachment[] attachment { get; set; }
-        public List<Tag> tag;
     }
 }

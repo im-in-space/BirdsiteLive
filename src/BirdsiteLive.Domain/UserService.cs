@@ -145,26 +145,6 @@ namespace BirdsiteLive.Domain
                 }
             };
 
-            if (twitterUser.Verified)
-            {
-                user.tag = new List<Tag>
-                {
-                    new Tag
-                    {
-                        icon = new TagResource
-                        {
-                            type = "Image",
-                            url = "https://" + _instanceSettings.Domain + "/verified.png"
-                        },
-                        id = "https://" + _instanceSettings.Domain + "/verified.png",
-                        name = ":verified:",
-                        type = "Emoji"
-                    }
-                };
-
-                user.name += " :verified:";
-            }
-
             return user;
         }
 

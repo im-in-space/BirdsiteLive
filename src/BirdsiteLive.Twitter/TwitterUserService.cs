@@ -91,8 +91,7 @@ namespace BirdsiteLive.Twitter
                 ProfileImageUrl = user.ProfileImageUrlFullSize.Replace("http://", "https://"),
                 ProfileBackgroundImageUrl = user.ProfileBackgroundImageUrlHttps,
                 ProfileBannerURL = user.ProfileBannerURL,
-                Protected = user.Protected,
-                Verified = user.Verified
+                Protected = user.Protected
             };
         }
 
