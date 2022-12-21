@@ -12,7 +12,7 @@ This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](htt
 Removed features from the original or fork:
 * ~~Verified checkmarks on [verified](https://twitter.com/verified) Twitter users~~
 
-This fork is also available as a Docker image as `mkody/birdsitelive`.
+This fork is also available as a Docker image as `ghcr.io/im-in-space/birdsitelive` (or `mkody/birdsitelive` at Docker Hub).
 
 [![ASP.NET Core Build & Tests](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml/badge.svg?branch=im-in-space&event=push)](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml)
 

@@ -168,7 +168,7 @@ networks:
 
 services:
     server:
-        image: mkody/birdsitelive:latest
+        image: ghcr.io/im-in-space/birdsitelive:latest
         [...]
 
     db:
