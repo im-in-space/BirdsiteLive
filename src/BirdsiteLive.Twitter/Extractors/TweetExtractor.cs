@@ -39,6 +39,7 @@ namespace BirdsiteLive.Twitter.Extractors
                 IsThread = tweet.InReplyToUserId != null && tweet.InReplyToUserId == tweet.CreatedBy.Id,
                 IsRetweet = tweet.IsRetweet || tweet.QuotedStatusId != null,
                 RetweetUrl = ExtractRetweetUrl(tweet),
+                CreatorName = tweet.CreatedBy.UserIdentifier.ScreenName,
                 QuoteTweetUrl = tweet.QuotedStatusId != null && tweet.QuotedTweet != null ? "https://" + _instanceSettings.Domain + "/users/" + tweet.QuotedTweet.CreatedBy.ScreenName + "/statuses/" + tweet.QuotedStatusId : null
             };
 

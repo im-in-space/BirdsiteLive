@@ -12,6 +12,7 @@ using BirdsiteLive.Common.Regexes;
 using BirdsiteLive.Common.Settings;
 using BirdsiteLive.Cryptography;
 using BirdsiteLive.DAL.Contracts;
+using BirdsiteLive.DAL.Models;
 using BirdsiteLive.Domain.BusinessUseCases;
 using BirdsiteLive.Domain.Repository;
 using BirdsiteLive.Domain.Statistics;
@@ -25,7 +26,7 @@ namespace BirdsiteLive.Domain
 {
     public interface IUserService
     {
-        Actor GetUser(TwitterUser twitterUser);
+        Actor GetUser(TwitterUser twitterUser, SyncTwitterUser dbTwitterUser);
         Task<bool> FollowRequestedAsync(string signature, string method, string path, string queryString, Dictionary<string, string> requestHeaders, ActivityFollow activity, string body);
         Task<bool> UndoFollowRequestedAsync(string signature, string method, string path, string queryString, Dictionary<string, string> requestHeaders, ActivityUndoFollow activity, string body);
 
@@ -68,7 +69,7 @@ namespace BirdsiteLive.Domain
         }
         #endregion
 
-        public Actor GetUser(TwitterUser twitterUser)
+        public Actor GetUser(TwitterUser twitterUser, SyncTwitterUser dbTwitterUser)
         {
             var actorUrl = UrlFactory.GetActorUrl(_instanceSettings.Domain, twitterUser.Acct);
             var acct = twitterUser.Acct.ToLowerInvariant();
@@ -111,6 +112,13 @@ namespace BirdsiteLive.Domain
                 });
             }
 
+            attachments.Add(new UserAttachment
+            {
+                type = "PropertyValue",
+                name = "Take control of this account",
+                value = $"<a href=\"https://{_instanceSettings.Domain}/migration/move/{acct}\" rel=\"me nofollow noopener noreferrer\" target=\"_blank\">MANAGE</a>"
+            });
+
             var user = new Actor
             {
                 id = actorUrl,
@@ -119,9 +127,10 @@ namespace BirdsiteLive.Domain
                 preferredUsername = acct,
                 name = twitterUser.Name,
                 inbox = $"{actorUrl}/inbox",
-                summary = description,
+                summary = "[UNOFFICIAL MIRROR: This is a view of Twitter using ActivityPub]<br/><br/>" + description,
                 url = actorUrl,
                 manuallyApprovesFollowers = twitterUser.Protected,
+                discoverable = false,
                 publicKey = new PublicKey()
                 {
                     id = $"{actorUrl}#main-key",
@@ -142,7 +151,8 @@ namespace BirdsiteLive.Domain
                 endpoints = new EndPoints
                 {
                     sharedInbox = $"https://{_instanceSettings.Domain}/inbox"
-                }
+                },
+                movedTo = dbTwitterUser?.MovedTo
             };
 
             return user;
