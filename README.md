@@ -1,4 +1,5 @@
-This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](https://github.com/NicolasConstant/BirdsiteLive) and [this fork from Pasture](https://git.gamers.exposed/pasture/BirdsiteLIVE). It runs in production at [im-in.space](https://bird.im-in.space). Changes made from the original include:
+This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](https://github.com/NicolasConstant/BirdsiteLive) and [this fork from Pasture](https://git.gamers.exposed/pasture/BirdsiteLIVE). It runs in production at [bird.im-in.space](https://bird.im-in.space).  
+Changes made from the original or fork include:
 
 * Rework About page entirely - also disclose unlisted accounts and federation restrictions
 * Cache Tweets so that, for example, Announces do not hit rate limits
@@ -8,15 +9,20 @@ This project is a *fork* of [the original BirdsiteLIVE from NicolasConstant](htt
 * Define and enforce a maximum follow count limit
 * Define and enforce a maximum Tweet fetch age using snowflakes
 * (Optional) send quote-RTs as Soapbox-style quote posts
+* Updated to .NET 6.0 and updated dependencies to stay within currently supported versions
 
 Removed features from the original or fork:
+
 * ~~Verified checkmarks on [verified](https://twitter.com/verified) Twitter users~~
 
-This fork is also available as a Docker image as `ghcr.io/im-in-space/birdsitelive` (or `mkody/birdsitelive` at Docker Hub).
+This fork is also available as a Docker image at [`ghcr.io/im-in-space/birdsitelive`](https://github.com/im-in-space/BirdsiteLive/pkgs/container/birdsitelive) (linux/amd64, linux/arm64).  
+Or at Docker Hub as [`mkody/birdsitelive`](https://hub.docker.com/r/mkody/birdsitelive) (linux/amd64).
 
 [![ASP.NET Core Build & Tests](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml/badge.svg?branch=im-in-space&event=push)](https://github.com/im-in-space/BirdsiteLive/actions/workflows/dotnet-core.yml)
 
 The project's original README is as follows:
+
+---
 
 # BirdsiteLIVE
 
