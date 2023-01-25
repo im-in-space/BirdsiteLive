@@ -13,4 +13,5 @@ RUN dotnet publish "/src/BSLManager/BSLManager.csproj" -r linux-x64 --self-conta
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+RUN apt-get update && apt-get install -y libncurses-dev && rm -rf /var/lib/apt/lists/*
 ENTRYPOINT ["dotnet", "BirdsiteLive.dll"]
