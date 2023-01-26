@@ -29,6 +29,7 @@ namespace BSLManager
 
         public void Run()
         {
+            Application.UseSystemConsole = true;
             Application.Init();
             var top = Application.Top;
 
@@ -121,6 +122,7 @@ namespace BSLManager
             );
 
             Application.Run();
+            Application.Shutdown();
         }
 
         private void OpenFollowerDialog(int selectedIndex)
