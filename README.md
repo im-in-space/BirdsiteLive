@@ -9,7 +9,6 @@ Changes made from the original or fork include:
 * Define and enforce a maximum follow count limit
 * Define and enforce a maximum Tweet fetch age using snowflakes
 * (Optional) send quote-RTs as Soapbox-style quote posts
-* Updated to .NET 6.0 and updated dependencies to stay within currently supported versions
 
 Removed features from the original or fork:
 

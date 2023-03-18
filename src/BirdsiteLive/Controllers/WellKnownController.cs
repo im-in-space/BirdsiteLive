@@ -117,7 +117,7 @@ namespace BirdsiteLive.Controllers
                     {
                         name = "birdsitelive",
                         version = Program.VERSION,
-                        repository = "https://github.com/NicolasConstant/BirdsiteLive"
+                        repository = "https://github.com/im-in-space/BirdsiteLive"
                     },
                     protocols = new[]
                     {
